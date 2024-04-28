@@ -127,7 +127,7 @@ def download_videos(task_id: str,
                     video_aspect: VideoAspect = VideoAspect.portrait,
                     video_contact_mode: VideoConcatMode = VideoConcatMode.random,
                     audio_duration: float = 0.0,
-                    max_clip_duration: int = 5,
+                    max_clip_duration: int = 500,
                     ) -> List[str]:
     valid_video_items = []
     valid_video_urls = []
@@ -146,7 +146,7 @@ def download_videos(task_id: str,
                 found_duration += item.duration
 
     logger.info(
-        f"found total videos: {len(valid_video_items)}, required duration: {audio_duration} seconds, found duration: {found_duration} seconds")
+        f"found total videos: {len(valid_video_items)}, required duration: {audio_duration} minutes, found duration: {found_duration} minutes")
     video_paths = []
 
     material_directory = config.app.get("material_directory", "").strip()
@@ -166,10 +166,10 @@ def download_videos(task_id: str,
             if saved_video_path:
                 logger.info(f"video saved: {saved_video_path}")
                 video_paths.append(saved_video_path)
-                seconds = min(max_clip_duration, item.duration)
-                total_duration += seconds
+                minutes = min(max_clip_duration, item.duration)
+                total_duration += minutes
                 if total_duration > audio_duration:
-                    logger.info(f"total duration of downloaded videos: {total_duration} seconds, skip downloading more")
+                    logger.info(f"total duration of downloaded videos: {total_duration} minutes, skip downloading more")
                     break
         except Exception as e:
             logger.error(f"failed to download video: {utils.to_json(item)} => {str(e)}")
@@ -178,4 +178,4 @@ def download_videos(task_id: str,
 
 
 if __name__ == "__main__":
-    download_videos("test123", ["cat"], audio_duration=100)
+    download_videos("test123", ["cat"], audio_duration=300)

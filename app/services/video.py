@@ -31,16 +31,16 @@ def combine_videos(combined_video_path: str,
                    audio_file: str,
                    video_aspect: VideoAspect = VideoAspect.portrait,
                    video_concat_mode: VideoConcatMode = VideoConcatMode.random,
-                   max_clip_duration: int = 5,
+                   max_clip_duration: int = 500,
                    threads: int = 2,
                    ) -> str:
     audio_clip = AudioFileClip(audio_file)
     audio_duration = audio_clip.duration
-    logger.info(f"max duration of audio: {audio_duration} seconds")
+    logger.info(f"max duration of audio: {audio_duration} minutes")
     # Required duration of each clip
     req_dur = audio_duration / len(video_paths)
     req_dur = max_clip_duration
-    logger.info(f"each clip will be maximum {req_dur} seconds long")
+    logger.info(f"each clip will be maximum {req_dur} minutes long")
     output_dir = os.path.dirname(combined_video_path)
 
     aspect = VideoAspect(video_aspect)

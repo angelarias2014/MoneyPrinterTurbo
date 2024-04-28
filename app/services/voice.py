@@ -15,7 +15,7 @@ from app.utils import utils
 
 def get_all_azure_voices(filter_locals=None) -> list[str]:
     if filter_locals is None:
-        filter_locals = ["zh-CN", "en-US", "zh-HK", "zh-TW", "vi-VN"]
+        filter_locals = ["zh-CN", "en-US", "zh-HK", "zh-TW", "vi-VN", "es-ES"]
     voices_str = """
 Name: af-ZA-AdriNeural
 Gender: Female

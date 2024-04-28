@@ -19,7 +19,7 @@
     "Video Ratio": "Video Aspect Ratio",
     "Portrait": "Portrait 9:16",
     "Landscape": "Landscape 16:9",
-    "Clip Duration": "Maximum Duration of Video Clips (seconds)",
+    "Clip Duration": "Maximum Duration of Video Clips (minutes)",
     "Number of Videos Generated Simultaneously": "Number of Videos Generated Simultaneously",
     "Audio Settings": "**Audio Settings**",
     "Speech Synthesis": "Speech Synthesis Voice",
